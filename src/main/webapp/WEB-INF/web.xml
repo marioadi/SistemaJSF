@@ -11,16 +11,25 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
     
+    <context-param>
+        <param-name>primefaces.THEME</param-name>
+        <param-value>bootstrap</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>primefaces.FONT_AWESOME</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    
+    <context-param>
+        <param-name>primefaces.TRANSFORM_METADATA</param-name>
+        <param-value>true</param-value>
+    </context-param>
+
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
-    
-    <session-config>
-        <session-timeout>
-            30
-        </session-timeout>
-    </session-config>
     
     <welcome-file-list>
         <welcome-file>/index.html</welcome-file>

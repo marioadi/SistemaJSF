@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+
+        <link rel="shortcut icon" href="#{request.contextPath}/resources/images/favicon.png" /> 
+        <title>ADE Manager<ui:insert name="complementoTitulo"/> </title>
+
+        <h:outputStylesheet library="bootstrap" name="css/bootstrap.min.css"/>
+        <h:outputStylesheet library="adminlte" name="css/adminlte.min.css"/>
+        <h:outputStylesheet library="adminlte" name="css/all-skins.min.css"/>
+        <h:outputStylesheet library="ademanager" name="css/ademanager.css"/>
+        <h:outputStylesheet library="primefaces-bootstrap" name="custom.css"/>
+    </h:head>
+
+    <h:body class="skin-blue sidebar-mini wysihtml5-supported sidebar-collapse">
+        <h:form id="formConteudo">
+            <div class="wrapper">
+
+                <!-- CABEÇALHO PRINCIPAL -->
+                <header class="main-header">
+
+                    <!-- LOGO -->
+                    <a class="logo">
+                        <!-- MINI LOGO MENU LATERAL -->
+                        <span class="logo-mini"><!--<h:graphicImage library="images" name="logo_adi_dashboard.png" width="35" height="35" alt="Logo Adi"/>--> T</span>
+                        <!-- LOGO PADRÃO -->
+                        <span class="logo-lg"><b><!--<h:graphicImage style="margin-bottom: 5px;" library="images" name="logo_adi_dashboard.png" width="30" height="30" alt="Logo Adi"/>--> Teste</b></span>
+                    </a>
+
+                    <!-- NAVBAR SUPERIOR -->
+                    <nav class="navbar navbar-static-top" role="navigation">
+                        <!-- BOTÃO MENU DINÂMICO-->
+                        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                            <span class="sr-only"></span>
+                        </a>
+                        <!-- NAVBAR DIREITA -->
+                        <div class="navbar-custom-menu">
+                            <ul class="nav navbar-nav">
+                                <!-- USUÁRIO DA CONTA -->
+                                <li class="dropdown user user-menu">
+                                    <!-- BOTÃO INFORMAÇÕES DO USUÁRIO -->
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                        <!-- IMAGEM DO USUÁRIO-->
+<!--                                        <p:graphicImage library="images"
+                                                        name="user-sem-foto.png"
+                                                        styleClass="user-image" 
+                                                        alt="Usuário sem Imagem"
+                                                        rendered="#{!templateBean.possuiImagem}"/>
+                                        <p:graphicImage library="images"
+                                                        styleClass="user-image" 
+                                                        name="image-perfil-user#{templateBean.usuarioLogado.id}.png"
+                                                        alt="Imagem de usuário"
+                                                        rendered="#{templateBean.possuiImagem}"/>-->
+                                        <!-- hidden-xs ESCONDE O NOME EM DISPOSITIVOS MÓVEIS -->
+                                        <span class="hidden-xs">Nome</span>
+                                    </a>
+                                    <!-- ÁREA DE INFORMAÇÕES DO USUÁRIO -->
+                                    <ul class="dropdown-menu">
+                                        <!-- IMAGEM DO USUÁRIO NAS INFORMAÇÕES -->
+                                        <li class="user-header">
+<!--                                            <p:graphicImage library="images"
+                                                            name="user-sem-foto.png"
+                                                            styleClass="user-image" 
+                                                            alt="Usuário sem Imagem"
+                                                            rendered="#{!templateBean.possuiImagem}"/>
+                                            <p:graphicImage library="images"
+                                                            name="image-perfil-user#{templateBean.usuarioLogado.id}.png"
+                                                            styleClass="user-image" 
+                                                            alt="Imagem de usuário"
+                                                            rendered="#{templateBean.possuiImagem}"/>-->
+                                            <p>
+                                                <!--#{usuarioBean.usuarioLogado.pessoa.nome}-->
+                                                <small>Membro desde Nov. 2017</small>
+                                            </p>
+                                        </li>
+                                        <!-- ÁREA PARA AVISOS -->
+                                        <li class="user-body">
+                                            <div class="row">
+                                                <div class="col-xs-4 text-center">
+                                                    <a href="#">Link1</a>
+                                                </div>
+                                                <div class="col-xs-4 text-center">
+                                                    <a href="#">Link2</a>
+                                                </div>
+                                                <div class="col-xs-4 text-center">
+                                                    <a href="#">Link3</a>
+                                                </div>
+                                            </div>
+                                            <li class="user-body">
+                                                <div class="row">
+                                                    <div class="col-xs-12 text-center">
+                                                        <span>Informção especial</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <!-- MENU INFERIOR DAS INFORMAÇÕES-->
+                                            <li class="user-footer">
+                                                <div class="pull-left">
+                                                    <a href="#" class="btn btn-default btn-flat">Perfil</a>
+                                                </div>
+                                                <div class="pull-right">
+                                                    <h:commandLink class="btn btn-info" title="Sair do sistema">
+                                                        <i class="fa fa fa-search"></i>
+                                                        <span>Sair</span>
+                                                    </h:commandLink>
+                                                </div>
+                                            </li>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <!-- MENSAGENS-->
+                                <li class="dropdown messages-menu">
+                                    <!-- BOTÃO MENSAGEM -->
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                        <i class="fa fa-envelope-o"></i>
+                                        <!-- QUANTIDADE DE MENSAGENS -->
+                                        <span class="label label-info">4</span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li class="header">Você possui 4 mensaens</li>
+                                        <li>
+                                            <!-- ÁREA DAS MENSAGENS -->
+                                            <ul class="menu">
+                                                <li><!-- PEIRMEIRA MENSAGEM -->
+                                                    <a href="#">
+                                                        <div class="pull-left">
+                                                            <!-- USUÁRIO DA IMAGEM -->
+<!--                                                            <h:graphicImage library="images" name="jonathan-user.png" />-->
+                                                        </div>
+                                                        <!-- CONTEÚDO DA MENSAGEM -->
+                                                        <h4>
+                                                            Título da mensagem
+                                                            <small><i class="fa fa-clock-o"></i> 5 minutos</small>
+                                                        </h4>
+                                                        <!-- MENSAGEM -->
+                                                        <p>Olá você gostou do template Person?</p>
+                                                    </a>
+                                                </li>
+                                                <!-- FIM DA PRIMEIRA MENSAGEM -->
+                                            </ul>
+                                        </li>
+                                        <li class="footer"><a href="#">Ver todas as mensagens</a></li>
+                                    </ul>
+                                </li>
+                                <!-- FIM ÁREA DAS MENSAGENS -->
+
+                                <!-- NOTIFICAÇÕES -->
+                                <li class="dropdown notifications-menu">
+                                    <!-- BOTÃO NOTIFICAÇÕES -->
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                        <i class="fa fa-bell-o"></i>
+                                        <!-- QUANTIDADE DE MENSAGENS -->
+                                        <span class="label label-warning">10</span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li class="header">Você tem 10 notificações</li>
+                                        <li>
+                                            <!-- CONTEÚDO NOTIFICAÇÕES -->
+                                            <ul class="menu">
+                                                <li><!-- PRIMEIRA NOTIFICAÇÃO -->
+                                                    <a href="#">
+                                                        <i class="fa fa-users text-aqua"></i> 5 Usuários estão bloqueados
+                                                    </a>
+                                                </li>
+                                                <!-- FIM DA PRIMEIRA NOTIFICAÇÃO -->
+                                            </ul>
+                                        </li>
+                                        <li class="footer"><a href="#">Ver todas as notificações</a></li>
+                                    </ul>
+                                </li>
+                                <!-- BOTÃO DE CONTROLE MENU DIREITO -->
+                                <li>
+                                    <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </header>
+                <!-- COLUNA LATERAL ESQUERDA CONTÉM TAMBÉM A LOGO -->
+                <aside class="main-sidebar">
+
+                    <!-- BLOCO ESQUERDO -->
+                    <section class="sidebar">
+
+                        <!-- BLOCO DE MENU -->
+                        <ul class="sidebar-menu" data-widget="tree">
+                            <li class="header">MENU DE NAVEGAÇÃO</li>
+                            <!-- LINKS DE MENU --> 
+                            <li>
+                                <p:link>
+                                    <i class="fa fa-dashboard"></i> 
+                                    <span>Dashboard</span>
+                                </p:link>
+                            </li>
+                            
+                            <li class="treeview">
+                                <p:link href="#">
+                                    <i class="fa fa-laptop"></i> 
+                                    <span>Desenvolvimento</span>
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </p:link>
+                                <ul class="treeview-menu">
+                                    <li>
+                                        <p:link>
+                                            <i class="fa fa-wrench"></i> 
+                                            <span>Ferramentas</span>
+                                        </p:link>
+                                        <p:link>
+                                            <i class="fa fa-align-center"></i> 
+                                            <span>Categorias de ferramentas</span>
+                                        </p:link>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                    <!-- FIM DO BLOCO ESQUERDO -->
+                </aside>
+
+                <!-- CONTEÚDO DA PÁGINA E CABEÇALHO -->
+                <div class="content-wrapper">
+                    <!-- CABEÇALHO DA PÁGINA -->
+                    <section class="content-header">
+                        <h1>
+                            <ui:insert name="header">Dashboard</ui:insert>
+                            <small>ADEManager</small>
+                        </h1>
+                        <!-- INDICAÇÃO DE PÁGINA DIREITA -->
+                        <ol class="breadcrumb">
+                            <li><a href="#"><h:link outcome="/dashboard"><i class="fa fa-dashboard"></i>Dashboard</h:link></a></li>
+                            <li class="active"><ui:insert name="breadcrumb"></ui:insert></li>
+                        </ol>
+                    </section>
+
+                    <!-- CONTEÚDO -->
+                    <p:spacer height="10" />
+                    <ui:insert name="conteudo">
+                    </ui:insert>
+                    <!-- FIM DO CONTEUDO -->
+
+                </div>
+                <!-- FIM DO CONTEÚDO DA PÁGINA E CABEÇALHO -->
+
+                <!-- FOOTER PRINCIPAL -->
+                <footer class="main-footer">
+                    <!-- VERSÃO DO SISTEMA -->
+                    <div class="pull-right hidden-xs">
+                        Version <b>1.0</b>
+                    </div>
+                    <!-- DESCRIÇÃO PADRÃO ESQUERDA -->
+                    <strong>Copyright 2017 <a href="#">ADE Soluções</a></strong> Todos os direitos reservados.
+                </footer>
+
+                <!-- BLOCO EXTRA DIREITO -->
+                <aside class="control-sidebar control-sidebar-dark">
+                    <!-- LISTA DE HABAS -->
+                    <ul id="aside-rigth" class="nav nav-tabs nav-justified control-sidebar-tabs">
+                        <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+                        <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+                    </ul>
+                    <!-- CONTEÚDO DAS HABA -->
+                    <div class="tab-content">
+                        <!-- PRIMEIRA HABA -->
+                        <div class="tab-pane active" id="control-sidebar-home-tab">
+                            <h3 class="control-sidebar-heading">Atividades Recentes</h3>
+                            <ul class="control-sidebar-menu">
+                                <li>
+                                    <a href="javascript:;">
+                                        <i class="menu-icon fa fa-birthday-cake bg-red"></i>
+
+                                        <div class="menu-info">
+                                            <h4 class="control-sidebar-subheading">Aniversário do sistema</h4>
+                                            <p>Será 16/12/2017</p>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                            <!-- FIM DAS ATIVIDADES -->
+
+                            <h3 class="control-sidebar-heading">Barra de progresso</h3>
+                            <ul class="control-sidebar-menu">
+                                <li>
+                                    <a href="javascript:;">
+                                        <h4 class="control-sidebar-subheading">
+                                            Porcentagem completada
+                                            <span class="pull-right-container">
+                                                <span class="label label-danger pull-right">85%</span>
+                                            </span>
+                                        </h4>
+
+                                        <div class="progress progress-xxs">
+                                            <!-- COLOCAMOS NO STYLE A PORCENTAGEM DE PREENCHIMENTO DA BARRA -->
+                                            <div class="progress-bar progress-bar-danger" style="width: 85%"></div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                            <!-- FIM DAS BARRAS DE PROGRESSO -->
+                        </div>
+                        <!--FIM DA PRIMEIRA HABA -->
+
+                        <!-- SEGUNDA HABA -->
+                        <div class="tab-pane" id="control-sidebar-settings-tab">
+                            <h3 class="control-sidebar-heading">Informações Gerais</h3>
+
+                            <div class="form-group">
+                                <span class="control-sidebar-subheading">Título da notificação</span>
+                                <p>Apenas informações referentes as configurações do sistema</p>
+                            </div>
+                        </div>
+                        <!-- FIM DA SEGUNDA HABA -->
+                    </div>
+                </aside>
+                <!-- BLOCO EXTRA DIREITO -->
+            </div>
+        </h:form>
+
+<!--        <p:ajaxStatus onstart="PF('statusDialog').show();" onsuccess="PF('statusDialog').hide(); configurarMoeda();"/>
+        <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closeOnEscape="false" closable="false" resizable="false" responsive="true" showHeader="false">
+            <p:graphicImage value="#{pageContext.servletContext.contextPath}/resources/images/loading.gif" style="width: 65px; height: 65px"/>
+        </p:dialog>-->
+
+        <!-- SCRIPTS -->
+        <h:outputScript library="primefaces" name="jquery/jquery.js" />
+        <h:outputScript library="bootstrap" name="js/bootstrap.min.js"/>
+        <h:outputScript library="adminlte" name="js/app.min.js"/>
+        <h:outputScript library="ademanager" name="js/ademanager.js"/>
+        <h:outputScript library="ademanager" name="js/jquery.maskMoney.js"/>
+
+        <script>
+            function configurarMoeda() {
+                $(".moeda").maskMoney({decimal: ",", thousands: ".", allowZero: true});
+            }
+
+            $(document).ready(function () {
+                configurarMoeda();
+            });
+        </script>
+    </h:body>
+</html>
